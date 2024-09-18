@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Lego';
+  src: url('./assets/fonts/lego-blocks-font/LegoBlocks.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.legoFont{
+  font-family: 'Lego', sans-serif;
+}
+
+.button{
+  padding: '1rem';
+  font-size: '1.5rem';
+  font-weight: 'bold';
+  margin: '2rem';
+  transition: transform 1s;
+}
+.button:hover{
+  transform: scale(1.1);
+  background-color: aqua;
+}
+.startBtn{
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.startBtn:hover{
+  transform: scale(1.1);
+}
+.modal{
+  text-align: center;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 1rem;
+  font-family: 'Londrina Solid';
+}
+.exit-button, .continue-button{
+  cursor: pointer;
+  margin: 10px;
+  transition: all 1s ease;
+}
+.exit-button:hover{
+  transform: scale(1.2);
+  background-color: red;
+}
+.continue-button:hover{
+  transform: scale(1.2);
+  color: white;
+  background-color: blue;
+}
