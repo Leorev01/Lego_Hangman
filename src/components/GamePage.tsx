@@ -68,8 +68,8 @@ export default function GamePage({
       </button>
       <div
         style={{
-          maxWidth: "100%",
-          width: "1000px",
+          maxWidth: "1100px",
+          width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
@@ -81,19 +81,19 @@ export default function GamePage({
           style={{
             width: "100%",
             flex: "1 0 auto",
-            padding: "20px 0",
+            padding: "10px 0",
           }}
         >
           {/* Hangman Drawing - Fixed height container */}
           <div
             style={{
               width: "100%",
-              maxWidth: "600px",
+              maxWidth: "660px",
               margin: "0 auto",
               position: "relative",
-              height: "45vh",
-              minHeight: "300px",
-              marginBottom: "5px",
+              height: "50vh",
+              minHeight: "320px",
+              marginBottom: "0",
               display: "flex",
               justifyContent: "center",
             }}
@@ -105,9 +105,9 @@ export default function GamePage({
           <div
             style={{
               width: "100%",
-              maxWidth: "400px",
-              margin: "0 auto 5px",
-              minHeight: "50px",
+              maxWidth: "440px",
+              margin: "0 auto 0",
+              minHeight: "40px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -126,9 +126,9 @@ export default function GamePage({
         <div
           style={{
             width: "100%",
-            maxWidth: "800px",
-            margin: "5px auto",
-            padding: "0",
+            maxWidth: "880px",
+            margin: "0 auto",
+            padding: "5px 0 0 0",
             position: "relative",
             flexShrink: 0,
             flex: "0 0 auto",
