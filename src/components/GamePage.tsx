@@ -1,7 +1,7 @@
 import HangmanDrawing from "./GamePageElements/HangmanDrawing";
 import HangmanWord from "./GamePageElements/HangmanWord";
 import HangmanKeyboard from "./GamePageElements/HangmanKeyboard";
-import bgImage from "../assets/images/mainScreen.jpg";
+import bgImage from "../assets/images/mainScreen3.jpg";
 
 type GamePageProps = {
   wordToGuess: string;
