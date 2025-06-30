@@ -1,68 +1,74 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import words from './wordList.json';
+import words from "./wordList.json";
 import StartPage from "./components/StartPage";
 import GamePage from "./components/GamePage";
-import Modal from './components/Modal';
-import './index.css';
-import loserAudio from './assets/audio/robloxDeath.mp4';
-import winnerAudio from './assets/audio/marioWinner.mp3';
+import Modal from "./components/Modal";
+import "./index.css";
+import loserAudio from "./assets/audio/robloxDeath.mp4";
+import winnerAudio from "./assets/audio/marioWinner.mp3";
 import useSound from "use-sound";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
-
-  const [playLoserSound] = useSound(loserAudio, {seek: 1});
-  const [playWinnerSound, {stop: stopWinnerSound}] = useSound(winnerAudio);
+  const [playLoserSound] = useSound(loserAudio, { seek: 1 });
+  const [playWinnerSound, { stop: stopWinnerSound }] = useSound(winnerAudio);
   const modalRef = useRef<HTMLDialogElement>(null);
 
   const [started, setStarted] = useState(false);
 
-  function handleStart(){
+  function handleStart() {
     setStarted(true);
   }
 
-  function handleContinue(){
+  function handleContinue() {
     setGuessedLetters([]);
     setWordToGuess(getWord());
     stopWinnerSound();
     return;
   }
-  
-  function handleExit(){
+
+  function handleExit() {
     setStarted(false);
     setWordToGuess(getWord());
     setGuessedLetters([]);
     stopWinnerSound();
   }
 
-  function getWord(){
+  function getWord() {
     return words[Math.floor(Math.random() * words.length)];
   }
 
   const [wordToGuess, setWordToGuess] = useState(getWord);
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
-  
-  const incorrectLetters = guessedLetters.filter(letter => !wordToGuess.includes(letter));
-  const isLoser = incorrectLetters.length === 6;
-  const isWinner = wordToGuess.split('').every(letter => guessedLetters.includes(letter));
 
-  const addGuessedLetter = useCallback((letter: string) => {
-    if(guessedLetters.includes(letter) || isLoser || isWinner) return;
-    setGuessedLetters(prevLetters => [...prevLetters, letter]);
-  }, [guessedLetters, isLoser, isWinner]);
+  const incorrectLetters = guessedLetters.filter(
+    (letter) => !wordToGuess.includes(letter)
+  );
+  const isLoser = incorrectLetters.length === 6;
+  const isWinner = wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+
+  const addGuessedLetter = useCallback(
+    (letter: string) => {
+      if (guessedLetters.includes(letter) || isLoser || isWinner) return;
+      setGuessedLetters((prevLetters) => [...prevLetters, letter]);
+    },
+    [guessedLetters, isLoser, isWinner]
+  );
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const key = event.key.toLowerCase(); // Handle case-insensitivity
 
       // Handle "Escape" key to reset or exit
-      if (key === 'escape') {
+      if (key === "escape") {
         handleExit();
         return;
       }
 
       // Handle "Enter" key to restart the game
-      if (key === 'enter') {
+      if (key === "enter") {
         event.preventDefault();
         handleContinue();
         return;
@@ -88,17 +94,18 @@ function App() {
     }
   }, [isLoser, isWinner]);
 
- return (
-  <>
-    <div style={{
-      maxWidth: '800px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '2rem',
-      margin: '0 auto',
-      alignItems: 'center'}}>
-      
-      <div style={{fontSize: '2rem', textAlign: 'center'}}>
+  return (
+    <div
+      style={{
+        maxWidth: "60%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        margin: "0 auto",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ fontSize: "2rem", textAlign: "center" }}>
         <AnimatePresence>
           {isLoser && (
             <>
@@ -118,15 +125,22 @@ function App() {
           )}
         </AnimatePresence>
       </div>
-      
+
       {started && (
-        <GamePage wordToGuess={wordToGuess} guessedLetters={guessedLetters} incorrectLetters={incorrectLetters} addGuessedLetter={addGuessedLetter} isWinner={isWinner} isLoser={isLoser} handleExit={handleExit}/>
+        <GamePage
+          wordToGuess={wordToGuess}
+          guessedLetters={guessedLetters}
+          incorrectLetters={incorrectLetters}
+          addGuessedLetter={addGuessedLetter}
+          isWinner={isWinner}
+          isLoser={isLoser}
+          handleExit={handleExit}
+        />
       )}
-      
+
       {!started && <StartPage startGame={handleStart} />}
     </div>
-  </>
- );
+  );
 }
 
 export default App;

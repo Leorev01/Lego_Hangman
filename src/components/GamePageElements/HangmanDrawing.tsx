@@ -1,12 +1,13 @@
-import legoHat from '../../assets/images/legoMan/legoHat.webp';
-import legoHead from '../../assets/images/legoMan/legoHead.webp';
-import legoTorso from '../../assets/images/legoMan/legoTorso.webp';
-import legoHand from '../../assets/images/legoMan/legoHand2.png';
-import legoLegs from '../../assets/images/legoMan/legoLegs.webp';
-import legoCrane from '../../assets/images/legoCrane.png';
-import {motion} from 'framer-motion';
+import legoHat from "../../assets/images/legoMan/legoHat.webp";
+import legoHead from "../../assets/images/legoMan/legoHead.webp";
+import legoTorso from "../../assets/images/legoMan/legoTorso.webp";
+import legoHand from "../../assets/images/legoMan/legoHand2.png";
+import legoLegs from "../../assets/images/legoMan/legoLegs.webp";
+import legoCrane from "../../assets/images/legoCrane.png";
+import { motion } from "framer-motion";
 
-{/*const HEAD = (
+{
+  /*const HEAD = (
     <div style={{
         width:'50px',
         height:'50px',
@@ -78,109 +79,183 @@ const LEFT_LEG = (
 
 const BODY_PARTS=[
     HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG
-]*/}
-
-const LEGO_HAT = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{ width:'110px',
-            height:'110px',
-            position:'absolute',
-            top:'155px',
-            right:'80px',
-            zIndex:3}} src={legoHat} alt='Lego Hair'/> 
-)
-const LEGO_HEAD = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{ width:'120px',
-            height:'120px',
-            position:'absolute',
-            top:'152px',
-            right:'75px',
-            zIndex:2}}
-            src={legoHead} alt='Lego Head'/> 
-)
-const LEGO_TORSO = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{ width:'130px',
-            height:'130px',
-            position:'absolute',
-            top:'200px',
-            right:'70px',
-            zIndex:1}}
-            src={legoTorso} alt='Lego Body'/> 
-)
-const LEGO_LEFT_HAND = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{ width:'45px',
-            height:'45px',
-            position:'absolute',
-            top:'273px',
-            right:'160px',
-            transform:'scaleY(-1)',
-            rotate:'-85deg',
-            zIndex:3
-        }} src={legoHand} alt='Lego Left Hand'/> 
-)
-const LEGO_RIGHT_HAND = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{ width:'45px',
-            height:'45px',
-            position:'absolute',
-            top:'273px',
-            right:'65px',
-            rotate:'-105deg',
-            zIndex:3
-        }} src={legoHand} alt='Lego Right Hand'/> 
-)
-const LEGO_LEGSS = (
-        <motion.img
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            style={{
-            width:'130px',
-            height:'130px',
-            position:'absolute',
-            top:'265px',
-            right:'70px',
-            zIndex:0
-        }}
-        src={legoLegs} alt='Lego Legs'/> 
-)
-const LEGO_BODY =[
-    LEGO_HAT,
-    LEGO_HEAD,
-    LEGO_TORSO,
-    LEGO_LEFT_HAND,
-    LEGO_RIGHT_HAND,
-    LEGO_LEGSS
-]
-
-type HangmanDrawingProps={
-    numberOfGuesses:number;
+]*/
 }
 
-export default function HangmanDrawing({numberOfGuesses}: HangmanDrawingProps){
-    return <div style={{position: 'relative'}}>
-        {LEGO_BODY.slice(0, numberOfGuesses)}
+const LEGO_HAT = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "110px",
+      height: "110px",
+      position: "absolute",
+      top: "200px",
+      left: "115%",
+      marginLeft: "-55px",
+      zIndex: 7,
+    }}
+    src={legoHat}
+    alt="Lego Hat"
+  />
+);
+const LEGO_HEAD = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "120px",
+      height: "120px",
+      position: "absolute",
+      top: "200px",
+      left: "115%",
+      marginLeft: "-60px",
+      zIndex: 2,
+    }}
+    src={legoHead}
+    alt="Lego Head"
+  />
+);
+const LEGO_TORSO = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "130px",
+      height: "130px",
+      position: "absolute",
+      top: "235px",
+      left: "115%",
+      marginLeft: "-65px",
+      zIndex: 1,
+    }}
+    src={legoTorso}
+    alt="Lego Body"
+  />
+);
+const LEGO_LEFT_HAND = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "45px",
+      height: "45px",
+      position: "absolute",
+      top: "307px",
+      left: "102%",
+      marginLeft: "-30px",
+      transform: "scaleY(-1)",
+      rotate: "-85deg",
+      zIndex: 3,
+    }}
+    src={legoHand}
+    alt="Lego Left Hand"
+  />
+);
+const LEGO_RIGHT_HAND = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "45px",
+      height: "45px",
+      position: "absolute",
+      top: "307px",
+      left: "128%",
+      marginLeft: "-15px",
+      rotate: "-105deg",
+      zIndex: 3,
+    }}
+    src={legoHand}
+    alt="Lego Right Hand"
+  />
+);
+const LEGO_LEGSS = (
+  <motion.img
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    style={{
+      width: "130px",
+      height: "130px",
+      position: "absolute",
+      top: "300px",
+      left: "115%",
+      marginLeft: "-65px",
+      zIndex: 0,
+    }}
+    src={legoLegs}
+    alt="Lego Legs"
+  />
+);
+const LEGO_BODY = [
+  LEGO_HAT,
+  LEGO_HEAD,
+  LEGO_TORSO,
+  LEGO_LEFT_HAND,
+  LEGO_RIGHT_HAND,
+  LEGO_LEGSS,
+];
+
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+
+export default function HangmanDrawing({
+  numberOfGuesses,
+}: HangmanDrawingProps) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "600px",
+          height: "400px",
+          overflow: "visible",
+        }}
+      >
+        {/* Hangman Parts */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "300px",
+            height: "100%",
+          }}
+        >
+          {LEGO_BODY.slice(0, numberOfGuesses)}
+        </div>
+
+        {/* Crane */}
         <motion.img
-        initial={{opacity:0}}
-        animate={{opacity:1}}
-        transition={{duration:2}}
-        src={legoCrane} alt='lego crane' style={{marginTop:-40, marginRight:'90px', zIndex:5, width:'600px', transform:'scaleX(-1)'}}/>
-        {/*<div style={{height:'50px', width: '10px', background:'black', position:'absolute', top:0, right:0,zIndex:4}}/>
-        <div style={{height:'10px', width: '200px', background:'black', marginLeft:'120px'}}/>
-        <div style={{height:'400px', width:'10px', background: 'black', marginLeft: '120px'}}/>
-        <div style={{height:'10px', width: '250px', background:'black'}}/>*/}
-        
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          src={legoCrane}
+          alt="lego crane"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "40%",
+            transform: "translateX(-50%) scaleX(-1)",
+            zIndex: 5,
+            width: "600px",
+            height: "auto",
+            maxWidth: "100%",
+          }}
+        />
+      </div>
     </div>
+  );
 }
