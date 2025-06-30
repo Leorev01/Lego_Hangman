@@ -25,17 +25,18 @@ export default function GamePage({
   return (
     <div
       style={{
-        position: "relative",
-        height: "100vh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "20px",
+        padding: "10px",
         boxSizing: "border-box",
-        width: "100%",
-        maxWidth: "1200px",
-        margin: "0 auto",
-        overflow: "hidden",
+        backgroundColor: "rgba(0,0,0,0.1)", // For debugging
       }}
     >
       <img
@@ -66,63 +67,72 @@ export default function GamePage({
       >
         Exit
       </button>
-
-      {/* Main content container */}
       <div
         style={{
+          maxWidth: "100%",
+          width: "1000px",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          width: "100%",
-          flex: "1 0 auto",
-          padding: "20px 0",
+          overflow: "hidden",
         }}
       >
-        {/* Hangman Drawing - Full width container */}
+        {/* Main content container */}
         <div
           style={{
             width: "100%",
-            maxWidth: "600px",
-            margin: "0 auto",
-            position: "relative",
-            height: "50vh",
-            minHeight: "300px",
-            marginBottom: "20px",
-            display: "flex",
-            justifyContent: "center",
+            flex: "1 0 auto",
+            padding: "20px 0",
           }}
         >
-          <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+          {/* Hangman Drawing - Fixed height container */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "600px",
+              margin: "0 auto",
+              position: "relative",
+              height: "40vh",
+              minHeight: "250px",
+              marginBottom: "10px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+          </div>
+
+          {/* Word Display */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "400px",
+              margin: "0 auto 10px",
+              minHeight: "60px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexShrink: 0,
+            }}
+          >
+            <HangmanWord
+              guessedLetters={guessedLetters}
+              wordToGuess={wordToGuess}
+              reveal={isLoser}
+            />
+          </div>
         </div>
 
-        {/* Word Display - 30% width */}
-        <div
-          style={{
-            width: "100%",
-            maxWidth: "400px",
-            margin: "0 auto 20px",
-            minHeight: "80px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <HangmanWord
-            guessedLetters={guessedLetters}
-            wordToGuess={wordToGuess}
-            reveal={isLoser}
-          />
-        </div>
-
-        {/* Keyboard - Fixed height with auto margin */}
+        {/* Keyboard - Fixed at bottom */}
         <div
           style={{
             width: "100%",
             maxWidth: "800px",
-            margin: "20px auto 0",
-            padding: "10px 0",
+            margin: "auto auto 10px",
+            padding: "5px 0",
             position: "relative",
             flexShrink: 0,
+            flex: "0 0 auto",
           }}
         >
           <HangmanKeyboard
@@ -132,8 +142,6 @@ export default function GamePage({
           />
         </div>
       </div>
-      {/* Empty div to prevent content from being hidden behind fixed elements */}
-      <div style={{ height: "20px", flexShrink: 0 }} />
     </div>
   );
 }
