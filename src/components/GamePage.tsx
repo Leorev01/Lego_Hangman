@@ -34,9 +34,8 @@ export default function GamePage({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "10px",
+        padding: "5px",
         boxSizing: "border-box",
-        backgroundColor: "rgba(0,0,0,0.1)", // For debugging
       }}
     >
       <img
@@ -92,9 +91,9 @@ export default function GamePage({
               maxWidth: "600px",
               margin: "0 auto",
               position: "relative",
-              height: "40vh",
-              minHeight: "250px",
-              marginBottom: "10px",
+              height: "45vh",
+              minHeight: "300px",
+              marginBottom: "5px",
               display: "flex",
               justifyContent: "center",
             }}
@@ -107,8 +106,8 @@ export default function GamePage({
             style={{
               width: "100%",
               maxWidth: "400px",
-              margin: "0 auto 10px",
-              minHeight: "60px",
+              margin: "0 auto 5px",
+              minHeight: "50px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -128,8 +127,8 @@ export default function GamePage({
           style={{
             width: "100%",
             maxWidth: "800px",
-            margin: "auto auto 10px",
-            padding: "5px 0",
+            margin: "5px auto",
+            padding: "0",
             position: "relative",
             flexShrink: 0,
             flex: "0 0 auto",
